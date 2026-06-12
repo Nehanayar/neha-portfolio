@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neha Nayar — AI/ML Developer</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue: #0a3d8f;
+  --dark: #0a1e4d;
+  --black: #111;
+  --body: #222;
+  --muted: #555;
+  --bg: #f8f9fb;
+  --card: #fff;
+  --border: #dde3f0;
+  --light-bg: #eef3fc;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* ── NAVBAR ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 1px 8px rgba(10,61,143,0.07);
+}
+.nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--dark); letter-spacing: -0.3px; }
+.nav-logo span { color: var(--blue); }
+.nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav-links a {
+  font-size: 0.82rem; font-weight: 600; color: var(--muted);
+  padding: 5px 10px; border-radius: 6px; text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+}
+.nav-links a:hover { background: var(--light-bg); color: var(--blue); }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #0a1e4d 0%, #0a3d8f 100%);
+  padding: 110px 40px 72px;
+  text-align: center;
+  color: #fff;
+}
+.hero h1 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; color: #fff; margin-bottom: 10px; }
+.hero h1 span { color: #7ab3ff; }
+.hero .tagline { font-size: 1.12rem; color: #b8d0f7; margin-bottom: 22px; }
+.hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+.btn {
+  display: inline-block; padding: 11px 26px; border-radius: 8px;
+  font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: 0.2s;
+}
+.btn-primary { background: #fff; color: var(--dark); }
+.btn-primary:hover { background: #e8f0ff; }
+.btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.5); }
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+.badges { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin-top: 28px; }
+.badge {
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.22);
+  color: #dde8ff; border-radius: 20px; padding: 4px 15px; font-size: 0.82rem; font-weight: 500;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 28px 80px; }
+
+section { padding-top: 72px; }
+
+.section-title {
+  font-size: 1.5rem; font-weight: 800; color: var(--dark);
+  margin-bottom: 28px; padding-bottom: 10px;
+  border-bottom: 3px solid var(--blue); display: inline-block;
+}
+
+/* ── ABOUT ── */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.about-text p { color: var(--body); margin-bottom: 14px; font-size: 1rem; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.stat-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px 18px; text-align: center;
+}
+.stat-card .num { font-size: 2rem; font-weight: 800; color: var(--blue); }
+.stat-card .lbl { font-size: 0.82rem; color: var(--muted); font-weight: 600; margin-top: 2px; }
+
+/* ── SKILLS ── */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.skill-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px 22px;
+}
+.skill-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-tag {
+  background: var(--light-bg); color: var(--dark); border: 1px solid #c5d5f5;
+  border-radius: 6px; padding: 3px 11px; font-size: 0.82rem; font-weight: 600;
+}
+
+/* ── EDUCATION ── */
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.edu-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px 26px; border-left: 4px solid var(--blue);
+}
+.edu-card .degree { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+.edu-card .school { font-size: 0.92rem; color: var(--muted); margin-bottom: 6px; }
+.edu-card .year { font-size: 0.83rem; color: var(--blue); font-weight: 700; }
+.edu-card .cgpa { display: inline-block; margin-top: 8px; background: var(--light-bg); color: var(--dark); border-radius: 20px; padding: 2px 12px; font-size: 0.82rem; font-weight: 700; }
+
+/* ── EXPERIENCE ── */
+.exp-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 28px 30px; border-left: 4px solid var(--blue);
+}
+.exp-card .role { font-size: 1.15rem; font-weight: 800; color: var(--dark); }
+.exp-card .company { font-size: 1rem; font-weight: 700; color: var(--blue); margin: 4px 0; }
+.exp-card .period { font-size: 0.87rem; color: var(--muted); margin-bottom: 16px; }
+.exp-card ul { padding-left: 20px; }
+.exp-card ul li { margin-bottom: 7px; font-size: 0.97rem; color: var(--body); }
+
+/* ── PROJECTS ── */
+.project-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 30px 32px 26px; margin-bottom: 28px;
+  box-shadow: 0 2px 14px rgba(10,61,143,0.05);
+}
+.project-card .proj-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
+.project-card h3 { font-size: 1.25rem; font-weight: 800; color: var(--dark); }
+.proj-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.proj-links a {
+  font-size: 0.82rem; font-weight: 700; padding: 5px 14px; border-radius: 6px;
+  text-decoration: none; transition: 0.18s;
+}
+.link-demo { background: var(--blue); color: #fff; }
+.link-demo:hover { background: #0052cc; }
+.link-github { background: var(--light-bg); color: var(--dark); border: 1px solid #c5d5f5; }
+.link-github:hover { background: #dde8ff; }
+.meta-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+.meta-tag {
+  background: var(--light-bg); color: var(--dark); border: 1px solid #c5d5f5;
+  border-radius: 6px; padding: 3px 11px; font-size: 0.78rem; font-weight: 700;
+}
+.proj-desc { color: var(--body); font-size: 0.97rem; margin-bottom: 16px; line-height: 1.8; }
+.proj-features { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.proj-features li {
+  background: #f3f6fd; color: #0a2a6e; border-radius: 7px;
+  padding: 4px 13px; font-size: 0.83rem; font-weight: 600; border: 1px solid #d0dcf5;
+}
+.stack-row { font-size: 0.88rem; color: var(--muted); margin-top: 10px; }
+.stack-row strong { color: var(--black); }
+.note {
+  background: #fff8e6; border-left: 4px solid #e5a800;
+  border-radius: 0 8px 8px 0; padding: 10px 16px;
+  font-size: 0.88rem; color: #5a4000; margin: 12px 0;
+}
+
+/* ── CONTACT ── */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.contact-info h4 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 18px; }
+.contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.contact-icon { width: 38px; height: 38px; background: var(--light-bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.contact-item span { font-size: 0.95rem; color: var(--body); }
+.contact-item a { color: var(--blue); font-weight: 600; text-decoration: none; }
+.contact-item a:hover { text-decoration: underline; }
+
+.contact-form { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 28px; }
+.contact-form h4 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 20px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--black); margin-bottom: 6px; }
+.form-group input, .form-group textarea {
+  width: 100%; padding: 10px 14px; border: 1.5px solid var(--border);
+  border-radius: 8px; font-size: 0.95rem; font-family: inherit;
+  color: var(--black); background: #fff; outline: none; transition: border 0.18s;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--blue); }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.btn-submit {
+  width: 100%; padding: 12px; background: var(--blue); color: #fff;
+  border: none; border-radius: 8px; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: background 0.2s;
+}
+.btn-submit:hover { background: #0052cc; }
+.form-success { display: none; text-align: center; padding: 18px; color: #1a6e3a; font-weight: 600; background: #e6f7ee; border-radius: 8px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark); color: #8da8d8;
+  text-align: center; padding: 36px 20px;
+  font-size: 0.92rem; margin-top: 60px;
+}
+footer a { color: #7ab3ff; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+footer strong { color: #c5d8ff; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 680px) {
+  .hero h1 { font-size: 2rem; }
+  .about-grid, .edu-grid, .contact-wrap { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .project-card { padding: 20px 18px; }
+}
+
+a { color: var(--blue); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">Neha<span>Nayar</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Neha <span>Nayar</span></h1>
+  <div class="tagline">Python Developer &nbsp;·&nbsp; AI/ML &nbsp;·&nbsp; Generative AI &nbsp;·&nbsp; Agentic AI</div>
+  <div class="badges">
+    <span class="badge">Python</span>
+    <span class="badge">LangChain</span>
+    <span class="badge">LangGraph</span>
+    <span class="badge">FastAPI</span>
+    <span class="badge">Google Gemini</span>
+    <span class="badge">Claude API</span>
+    <span class="badge">RAG</span>
+    <span class="badge">FAISS</span>
+    <span class="badge">Streamlit</span>
+    <span class="badge">Deep Learning</span>
+    <span class="badge">NLP</span>
+  </div>
+  <div class="hero-btns">
+    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="Neha_Resume_Final.docx" download class="btn btn-outline">⬇ Download Resume</a>
+    <a href="#contact" class="btn btn-outline">Contact Me</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-title">About Me</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Hi! I'm Neha Nayar, an MCA student (Pursuing) at HPU Regional Centre, Dharamshala, specializing in Artificial Intelligence, Machine Learning, Generative AI and Agentic AI.</p>
+        <p>I build end-to-end AI-powered applications — from intelligent RAG pipelines and LLM integrations to full-stack web apps with FastAPI and Streamlit. I love working with modern AI frameworks like LangChain, LangGraph and Google Gemini to create systems that are practical and impactful.</p>
+        <p>I recently completed a <strong>6-month Python Developer Internship</strong> at CS Soft Solutions, Mohali, where I worked on NLP, Deep Learning, Generative AI and Agentic AI workflows — and deployed 3 live AI projects.</p>
+        <p>I'm passionate about turning AI research into real, working products that solve actual problems.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card"><div class="num">3+</div><div class="lbl">Live AI Projects</div></div>
+        <div class="stat-card"><div class="num">6</div><div class="lbl">Months Internship</div></div>
+        <div class="stat-card"><div class="num">8.2</div><div class="lbl">MCA CGPA</div></div>
+        <div class="stat-card"><div class="num">8.5</div><div class="lbl">BCA CGPA</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-title">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Programming</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Frameworks &amp; Web</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">Streamlit</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Stripe Payment</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>AI / ML</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">NLP</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">Feature Engineering</span>
+          <span class="skill-tag">Predictive Analytics</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Generative AI</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">LLMs</span>
+          <span class="skill-tag">RAG</span>
+          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">LangGraph</span>
+          <span class="skill-tag">Agentic AI</span>
+          <span class="skill-tag">Prompt Engineering</span>
+          <span class="skill-tag">Gemini API</span>
+          <span class="skill-tag">Claude API</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Libraries &amp; Tools</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Scikit-Learn</span>
+          <span class="skill-tag">Plotly</span>
+          <span class="skill-tag">Prophet</span>
+          <span class="skill-tag">ReportLab</span>
+          <span class="skill-tag">Sentence Transformers</span>
+          <span class="skill-tag">OpenCV</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h4>Databases &amp; Deployment</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">SQLite</span>
+          <span class="skill-tag">FAISS</span>
+          <span class="skill-tag">Streamlit Cloud</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">Uvicorn</span>
+          <span class="skill-tag">Render</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-title">Education</div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="degree">Master of Computer Applications (MCA)</div>
+        <div class="school">HPU Regional Centre, Dharamshala</div>
+        <div class="year">2024 – 2026 &nbsp;·&nbsp; Pursuing</div>
+        <div>Specialization in AI, ML, Generative AI and Agentic AI</div>
+        <span class="cgpa">CGPA: 8.2 (Ongoing)</span>
+      </div>
+      <div class="edu-card">
+        <div class="degree">Bachelor of Computer Applications (BCA)</div>
+        <div class="school">Himachal Pradesh University</div>
+        <div class="year">2021 – 2024 &nbsp;·&nbsp; Completed</div>
+        <div>Computer Science fundamentals, programming and software development</div>
+        <span class="cgpa">CGPA: 8.5</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-title">Experience</div>
+    <div class="exp-card">
+      <div class="role">Python Developer Intern</div>
+      <div class="company">CS Soft Solutions (India) Pvt Ltd, Mohali</div>
+      <div class="period">January 2026 – June 2026 &nbsp;·&nbsp; 6 Months</div>
+      <ul>
+        <li>Developed and deployed AI and Machine Learning applications using Python, FastAPI and Streamlit.</li>
+        <li>Worked extensively on NLP tasks including text classification, entity extraction and semantic search.</li>
+        <li>Built complete RAG (Retrieval-Augmented Generation) pipelines using LangChain and FAISS vector databases.</li>
+        <li>Implemented Generative AI features using Google Gemini API and Claude API for intelligent response generation.</li>
+        <li>Designed Agentic AI workflows using LangGraph for multi-step autonomous task execution.</li>
+        <li>Applied Deep Learning and feature engineering techniques for predictive analytics and forecasting models.</li>
+        <li>Worked on Computer Vision tasks using OpenCV as part of AI automation workflows.</li>
+        <li>Deployed applications on Streamlit Cloud; managed project versioning and collaboration using Git and GitHub.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-title">Projects</div>
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <div class="proj-header">
+        <h3>🧾 AI Expense Analyzer — OCR Edition</h3>
+        <div class="proj-links">
+          <a href="https://neha-aiexpense-ocr.streamlit.app/" class="link-demo" target="_blank">🚀 Live Demo</a>
+          <a href="https://github.com/Nehanayar/ai_expense_analyzer_ocr" class="link-github" target="_blank">GitHub →</a>
+        </div>
+      </div>
+      <div class="meta-tags">
+        <span class="meta-tag">OCR</span>
+        <span class="meta-tag">Computer Vision</span>
+        <span class="meta-tag">NLP</span>
+        <span class="meta-tag">ML Forecasting</span>
+        <span class="meta-tag">Streamlit</span>
+        <span class="meta-tag">Tesseract</span>
+      </div>
+      <p class="proj-desc">An advanced AI-powered expense analyzer with OCR receipt scanning at its core. Snap a photo of any bill — the system uses Tesseract OCR to extract merchant name, amount and date automatically. SentenceTransformer embeddings categorize every expense with AI, Facebook Prophet forecasts next-month spending, and a rule-based chatbot answers natural language queries about your finances — all in one Streamlit app.</p>
+      <ul class="proj-features">
+        <li>Tesseract OCR receipt scanning</li>
+        <li>SentenceTransformer AI categorization</li>
+        <li>Prophet time-series forecasting</li>
+        <li>Rule-based Expense Chatbot</li>
+        <li>Plotly interactive dashboard</li>
+        <li>PDF report generation</li>
+        <li>SMTP budget email alerts</li>
+        <li>bcrypt secure authentication</li>
+      </ul>
+      <div class="stack-row"><strong>Tech Stack:</strong> Python · Streamlit · Tesseract OCR · SentenceTransformers · Facebook Prophet · Plotly · ReportLab · SQLite · bcrypt</div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <div class="proj-header">
+        <h3>🎤 AI Interview Agent</h3>
+
+        <div class="proj-links">
+          <a href="https://neha-ai-interview-agent.streamlit.app/" class="link-demo" target="_blank">🚀 Live Demo</a>
+          <a href="https://github.com/Nehanayar/ai-interview-agent" class="link-github" target="_blank">GitHub →</a>
+        </div>
+      </div>
+      <div class="meta-tags">
+        <span class="meta-tag">Agentic AI</span>
+        <span class="meta-tag">LangGraph</span>
+        <span class="meta-tag">FastAPI</span>
+        <span class="meta-tag">Google Gemini</span>
+        <span class="meta-tag">SQLite</span>
+      </div>
+      <p class="proj-desc">A fully automated AI interview system that conducts complete technical interviews without any human involvement — from generating questions to evaluating answers and producing a final performance report. The LangGraph stateful workflow manages the entire lifecycle. Supports three technical roles: Python Developer, ML Engineer and GenAI Engineer. Gemini AI evaluates every answer with a score, strengths, weaknesses and actionable feedback.</p>
+      <ul class="proj-features">
+        <li>Fully automated end-to-end</li>
+        <li>3 technical role tracks</li>
+        <li>LangGraph stateful workflow</li>
+        <li>Gemini AI answer evaluation</li>
+        <li>Score + strengths + weaknesses</li>
+        <li>Final performance report</li>
+        <li>FastAPI backend + Streamlit UI</li>
+      </ul>
+      <div class="stack-row"><strong>Tech Stack:</strong> Python · FastAPI · LangGraph · Google Gemini · Streamlit · SQLite · SQLAlchemy</div>
+      <div class="note">Uses Google Gemini API (free tier). Demo may be temporarily unavailable if quota is reached.</div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <div class="proj-header">
+        <h3>🤖 RAG-Powered Document Chatbot</h3>
+        <div class="proj-links">
+          <a href="https://neha-rag-chatbot.streamlit.app/" class="link-demo" target="_blank">🚀 Live Demo</a>
+          <a href="https://github.com/Nehanayar/Rag-chatbot-with-memory" class="link-github" target="_blank">GitHub →</a>
+        </div>
+      </div>
+      <div class="meta-tags">
+        <span class="meta-tag">RAG</span>
+        <span class="meta-tag">LangChain</span>
+        <span class="meta-tag">FAISS</span>
+        <span class="meta-tag">Google Gemini</span>
+        <span class="meta-tag">Conversation Memory</span>
+      </div>
+      <p class="proj-desc">A complete Retrieval-Augmented Generation chatbot built from scratch. Upload any PDF — a textbook, research paper or report — and ask questions about it. The system chunks the document, embeds it into a FAISS vector store, retrieves the most relevant passages and passes them to Google Gemini to generate accurate answers. Conversation memory means follow-up questions work naturally across the entire session.</p>
+      <ul class="proj-features">
+        <li>PDF ingestion &amp; chunking</li>
+        <li>FAISS vector indexing</li>
+        <li>Semantic retrieval</li>
+        <li>Gemini AI responses</li>
+        <li>Persistent conversation memory</li>
+        <li>LangChain RAG pipeline</li>
+      </ul>
+      <div class="stack-row"><strong>Tech Stack:</strong> Python · LangChain · Google Gemini · FAISS · Streamlit</div>
+      <div class="note">Uses Google Gemini API (free tier). Demo may be temporarily unavailable if quota is reached.</div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="project-card">
+      <div class="proj-header">
+        <h3>🛒 E-Commerce Web Application</h3>
+        <div class="proj-links">
+          <a href="https://github.com/Nehanayar" class="link-github" target="_blank">GitHub →</a>
+        </div>
+      </div>
+      <div class="meta-tags">
+        <span class="meta-tag">Django</span>
+        <span class="meta-tag">Stripe Payments</span>
+        <span class="meta-tag">SQLite</span>
+        <span class="meta-tag">Full Stack</span>
+      </div>
+      <p class="proj-desc">A fully functional Django-based e-commerce web application with user authentication, a complete product catalog, shopping cart and real Stripe payment gateway integration. Built to demonstrate full-stack web development skills with a clean backend and responsive frontend.</p>
+      <ul class="proj-features">
+        <li>User registration &amp; login</li>
+        <li>Product catalog &amp; detail pages</li>
+        <li>Shopping cart system</li>
+        <li>Stripe payment gateway</li>
+        <li>Order management</li>
+      </ul>
+      <div class="stack-row"><strong>Tech Stack:</strong> Python · Django · SQLite · Stripe API · HTML · CSS</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-title">Contact</div>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h4>Get in touch</h4>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <span>+91 9015078094</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <span><a href="mailto:nehanayar27@gmail.com">nehanayar27@gmail.com</a></span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <span>Chandigarh, India</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💼</div>
+          <span><a href="https://www.linkedin.com/in/neha-nayar-72702937a/" target="_blank">linkedin.com/in/neha-nayar</a></span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🐙</div>
+          <span><a href="https://github.com/Nehanayar" target="_blank">github.com/Nehanayar</a></span>
+        </div>
+        <div style="margin-top: 24px;">
+          <a href="Neha_Resume_Final.docx" download class="btn btn-primary" style="background: var(--blue); color: #fff; padding: 11px 24px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-block;">⬇ Download Resume</a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h4>Send a Message</h4>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" id="fname" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="femail" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" id="fsubject" placeholder="What's this about?">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="fmessage" placeholder="Write your message here..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="handleSubmit()">Send Message</button>
+        <div class="form-success" id="fsuccess">✅ Message sent! I'll get back to you soon.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Built by <strong>Neha Nayar</strong> &nbsp;·&nbsp; AI/ML Developer &nbsp;·&nbsp; MCA Student</p>
+  <p style="margin-top: 8px;">
+    <a href="https://github.com/Nehanayar" target="_blank">GitHub</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.linkedin.com/in/neha-nayar-72702937a/" target="_blank">LinkedIn</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:nehanayar27@gmail.com">Email</a>
+  </p>
+  <p style="margin-top: 10px; font-size: 0.82rem; color: #4a6a9a;">© 2026 Neha Nayar · MIT License</p>
+</footer>
+
+<script>
+function handleSubmit() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const subject = document.getElementById('fsubject').value.trim();
+  const message = document.getElementById('fmessage').value.trim();
+  if (!name || !email || !message) {
+    alert('Please fill in your name, email and message.');
+    return;
+  }
+  const mailto = `mailto:nehanayar27@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Contact')}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+  window.location.href = mailto;
+  document.getElementById('fsuccess').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
